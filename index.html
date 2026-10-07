@@ -61,9 +61,9 @@
         .font-heading {
             font-family: 'Cinzel', serif;
         }
-        /* Glassmorphism */
+        /* Glassmorphism header */
         .glass-header {
-            background: rgba(18, 16, 14, 0.88);
+            background: rgba(18, 16, 14, 0.95);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid rgba(212, 163, 115, 0.15);
@@ -76,11 +76,23 @@
             border-color: rgba(212, 163, 115, 0.4);
             box-shadow: 0 20px 40px -15px rgba(212, 163, 115, 0.1);
         }
-        /* Mobile menu staggered animation */
+        /* Staggered Mobile Menu Animation */
+        .mobile-menu {
+            background-color: #12100e !important;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
         .mobile-menu-item {
             opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.35s ease, transform 0.35s ease;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
         .mobile-menu.open .mobile-menu-item {
             opacity: 1;
@@ -92,7 +104,7 @@
 
     <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-header py-4 px-6 md:px-12">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <!-- Brand Name Only (No Logo in Header) -->
+            <!-- Brand Name Only (Zero Logo in Header) -->
             <a href="#hero" class="flex flex-col group">
                 <span class="font-heading font-bold text-sm md:text-lg tracking-wider text-creamText group-hover:text-accentGold transition-colors">Island Warriors</span>
                 <span class="text-[9px] md:text-[10px] text-mutedText tracking-widest uppercase">Street Outreach Society</span>
@@ -121,17 +133,17 @@
             </button>
         </div>
 
-        <!-- Mobile Navigation Drawer with Staggered Items -->
-        <div id="mobile-menu" class="mobile-menu lg:hidden fixed inset-x-0 top-[73px] bg-stoneDark/98 backdrop-blur-xl border-b border-stoneBorder/80 max-h-0 overflow-hidden transition-all duration-500 ease-in-out shadow-2xl">
-            <div class="flex flex-col px-6 py-8 space-y-5 text-center">
-                <a href="#who-we-are" class="mobile-menu-item text-lg font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 50ms;">Who We Are</a>
-                <a href="#mission" class="mobile-menu-item text-lg font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 100ms;">Mission</a>
-                <a href="#vision" class="mobile-menu-item text-lg font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 150ms;">Vision</a>
-                <a href="#what-we-do" class="mobile-menu-item text-lg font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 200ms;">What We Do</a>
-                <a href="#relations" class="mobile-menu-item text-lg font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 250ms;">All My Relations</a>
-                <a href="#commitment" class="mobile-menu-item text-lg font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 300ms;">Commitment & Pamphlet</a>
-                <div class="pt-4 mobile-menu-item" style="transition-delay: 350ms;">
-                    <a href="#contact" class="inline-block w-full py-3 rounded-full bg-accentGold text-stoneDark font-semibold uppercase tracking-wider text-xs">
+        <!-- Solid Opaque Mobile Menu Drawer with One-by-One Staggered Entrance -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden fixed inset-x-0 top-[73px] h-[calc(100vh-73px)] border-b border-stoneBorder/80 overflow-y-auto">
+            <div class="flex flex-col px-8 py-12 space-y-6 text-center">
+                <a href="#who-we-are" class="mobile-menu-item text-xl font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 80ms;">Who We Are</a>
+                <a href="#mission" class="mobile-menu-item text-xl font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 140ms;">Mission</a>
+                <a href="#vision" class="mobile-menu-item text-xl font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 200ms;">Vision</a>
+                <a href="#what-we-do" class="mobile-menu-item text-xl font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 260ms;">What We Do</a>
+                <a href="#relations" class="mobile-menu-item text-xl font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 320ms;">All My Relations</a>
+                <a href="#commitment" class="mobile-menu-item text-xl font-heading text-creamText hover:text-accentGold transition-colors" style="transition-delay: 380ms;">Commitment & Pamphlet</a>
+                <div class="pt-6 mobile-menu-item" style="transition-delay: 440ms;">
+                    <a href="#contact" class="inline-block w-full py-4 rounded-full bg-accentGold text-stoneDark font-semibold uppercase tracking-wider text-xs">
                         Get In Touch
                     </a>
                 </div>
@@ -150,7 +162,7 @@
         </div>
 
         <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
-            <!-- Organization Location & Title (No Logo Overlay) -->
+            <!-- Organization Location & Title (Zero Logo Overlay) -->
             <span class="text-xs md:text-sm font-semibold tracking-[0.3em] uppercase text-accentGold mb-4">Victoria, British Columbia</span>
             <h1 class="font-heading text-3xl sm:text-5xl md:text-7xl font-bold tracking-wider text-creamText mb-6 leading-tight">
                 Island Warriors<br/>Street Outreach Society
@@ -526,7 +538,7 @@
                 <div class="flex items-center space-x-3">
                     <span class="font-heading font-bold text-base text-creamText">Island Warriors Street Outreach</span>
                 </div>
-                <p class="text-mutedText text-xs leading-relaxed italic">
+                <p class="text-mutedText text-xs leading-relaxed italic font-medium">
                     "WE DO RECOVER. WE DO OUTREACH. WE DO IT TOGETHER. ONE COMMUNITY. ONE FAMILY."
                 </p>
             </div>
@@ -615,7 +627,7 @@
             }
         });
 
-        // Mobile Menu Toggle & Staggered Animation
+        // Mobile Menu Toggle with Solid Opaque Background & Staggered Animation
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -624,14 +636,14 @@
             const isOpen = mobileMenu.classList.contains('open');
             if (isOpen) {
                 mobileMenu.classList.remove('open');
-                mobileMenu.style.maxHeight = '0px';
                 hamburgerIcon.classList.remove('fa-xmark');
                 hamburgerIcon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
             } else {
                 mobileMenu.classList.add('open');
-                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
                 hamburgerIcon.classList.remove('fa-bars');
                 hamburgerIcon.classList.add('fa-xmark');
+                document.body.style.overflow = 'hidden';
             }
         });
 
@@ -639,9 +651,9 @@
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('open');
-                mobileMenu.style.maxHeight = '0px';
                 hamburgerIcon.classList.remove('fa-xmark');
                 hamburgerIcon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
             });
         });
 
